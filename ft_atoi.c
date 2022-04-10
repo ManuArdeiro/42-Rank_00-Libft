@@ -6,7 +6,7 @@
 /*   By: jolopez- <jolopez-@student.42madrid>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/25 20:05:33 by jolopez-          #+#    #+#             */
-/*   Updated: 2022/04/04 19:34:10 by jolopez-         ###   ########.fr       */
+/*   Updated: 2022/04/08 20:40:34 by jolopez-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,11 +46,11 @@ int	ft_atoi(const char *str)
 			is_neg = -1;
 	while (ft_number(str[i]) != -1)
 	{
+		res = res * 10 + ft_number(str[i]);
 		if (res > (~0UL >> 1) && is_neg == 1)
 			return (-1);
 		else if (res > (~0UL >> 1) && is_neg == -1)
 			return (0);
-		res = res * 10 + ft_number(str[i]);
 		i++;
 	}
 	return (res * is_neg);

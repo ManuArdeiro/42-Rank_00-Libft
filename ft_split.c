@@ -6,7 +6,7 @@
 /*   By: jolopez- <jolopez-@student.42madrid>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/26 13:23:15 by jolopez-          #+#    #+#             */
-/*   Updated: 2022/04/03 19:00:51 by jolopez-         ###   ########.fr       */
+/*   Updated: 2022/04/06 18:59:06 by jolopez-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,10 +45,11 @@ static void	ft_write_part(char **split, const char *s_part, char c, int part)
 static int	ft_alloc_mem(char **split, int j, int part)
 {
 	split[part] = (char *)malloc(sizeof(char) * (j + 1));
-	if (!split)
+	if (!split[part])
 	{
 		while (part > 0)
 			free(split[--part]);
+		free(split);
 		return (0);
 	}
 	return (1);

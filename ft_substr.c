@@ -6,7 +6,7 @@
 /*   By: jolopez- <jolopez-@student.42madrid>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/25 20:35:24 by jolopez-          #+#    #+#             */
-/*   Updated: 2022/04/04 20:47:52 by jolopez-         ###   ########.fr       */
+/*   Updated: 2022/04/08 20:03:35 by jolopez-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,7 +44,8 @@ static char	*ft_alloc_empty(void)
 
 char	*ft_substr(char const *s, unsigned int start, size_t len)
 {
-	char	*str;
+	char			*str;
+	unsigned int	length;
 
 	if (!s)
 		return (NULL);
@@ -54,8 +55,12 @@ char	*ft_substr(char const *s, unsigned int start, size_t len)
 		return (str);
 	}
 	if (ft_strlen(s) < len - start)
-		len = ft_strlen(s) - start;
-	str = malloc(sizeof(char) * (len + 1));
+	{
+		length = ft_strlen(s) - start;
+		str = malloc(sizeof(char) * (length + 1));
+	}
+	else
+		str = malloc(sizeof(char) * (len + 1));
 	if (!str)
 		return (NULL);
 	str = ft_alloc_mem(str, s, start, len);
@@ -64,9 +69,9 @@ char	*ft_substr(char const *s, unsigned int start, size_t len)
 
 /*int	main(void)
 {
-	char	*s = "La primera vez que caminé sobre el agua tenía 10 años.";
-	int		start = 5;
-	int		len = 10;
+	char	*s = "lorem ipsum dolor sit amet";
+	int		start = 7;
+	int		len = 0;
 	char	*res;
 
 	res = ft_substr(s, start, len);

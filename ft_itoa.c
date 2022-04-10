@@ -6,11 +6,12 @@
 /*   By: jolopez- <jolopez-@student.42madrid>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/26 15:28:33 by jolopez-          #+#    #+#             */
-/*   Updated: 2022/04/04 19:33:49 by jolopez-         ###   ########.fr       */
+/*   Updated: 2022/04/10 14:57:33 by jolopez-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
+#include<stdio.h>
 
 static int	ft_len_nbr(int n)
 {
@@ -19,6 +20,8 @@ static int	ft_len_nbr(int n)
 	i = 1;
 	if (n < 0)
 	{
+		n = n / 10;
+		i++;
 		n = n * -1;
 		i++;
 	}
@@ -79,3 +82,13 @@ char	*ft_itoa(int n)
 	ft_strrev(str);
 	return (str);
 }
+
+/*int	main(void)
+{
+	long long		n = -2147483648LL;
+	char	*i;
+
+	i = ft_itoa(n);
+	printf("n = %d\nft_itoa = %s\n", (int)n, i);
+	return (0);
+}*/

@@ -6,7 +6,7 @@
 #    By: jolopez- <jolopez-@student.42madrid>       +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/03/26 17:03:15 by jolopez-          #+#    #+#              #
-#    Updated: 2022/04/06 18:16:52 by jolopez-         ###   ########.fr        #
+#    Updated: 2022/04/10 16:06:03 by jolopez-         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -20,9 +20,10 @@ SRCS			= ft_isalnum.c ft_isprint.c ft_memcmp.c ft_putchar_fd.c \
 				  ft_isalpha.c ft_strrchr.c ft_memset.c ft_striteri.c \
 				  ft_split.c ft_strmapi.c
 
-BONUS			= ft_lstadd_front.c ft_lstclear.c \
-				  ft_lstdelone.c ft_lstiter.c ft_lstlast.c \
-				  ft_lstmap.c ft_lstnew.c ft_lstsize.c ft_lstadd_back.c
+BONUS			= ft_lstadd_front_bonus.c ft_lstclear_bonus.c \
+				  ft_lstdelone_bonus.c ft_lstiter_bonus.c ft_lstlast_bonus.c \
+				  ft_lstmap_bonus.c ft_lstnew_bonus.c ft_lstsize_bonus.c \
+				  ft_lstadd_back_bonus.c
 
 OBJS			= $(SRCS:.c=.o)
 
@@ -39,7 +40,7 @@ NAME			= libft.a
 all:			$(NAME)
 
 $(NAME):		$(OBJS)
-				ar rcs $(NAME) $(OBJS)
+				ar rcs $(NAME)
 
 clean:
 				$(RM) $(OBJS) $(BONUS_OBJS)
@@ -49,7 +50,12 @@ fclean:			clean
 
 re:				fclean $(NAME)
 
-bonus:			$(OBJS) $(BONUS_OBJS)
-				ar rcs $(NAME) $(OBJS) $(BONUS_OBJS)
+B = .
+
+bonus: $(B)
+
+
+$(B):			$(OBJS) $(BONUS_OBJS)
+				ar rcs $(NAME)
 
 .PHONY:			all clean fclean re bonus

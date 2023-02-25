@@ -1,0 +1,3 @@
+# 42_libft
+
+libft is a library with util functions to use in big projects. It contents functions like atoi, calloc, memset,...
